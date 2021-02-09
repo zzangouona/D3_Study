@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script type="text/javascript" src="../node_modules/d3/dist/d3.js"></script>
+    <title>Single Selection</title>
+  </head>
+  <body>
+    <p id="target"></p>
+    <!--A-->
+    <script type="text/javascript">
+      d3.select("p#target") // B
+        .text("Hello world!"); //C
+      // select 명령어는 단일 요소를 선택하기 위해 사용.
+      // 표준 수정자 함수.
+
+      // attr
+      d3.select("p").attr("foo", "goo"); // p 요소에 foo 속성을 goo로 설정
+      console.log(d3.select("p").attr("foo")); // p 요소 에서 foo 속성 가져오기.
+
+      // classed
+      d3.select("p").classed("goo", true); // p 요소에 css 클래스 goo 추가;
+      console.log(d3.select("p").classed("goo")); // p 요소가 css 클래스인 goo를 갖고 있는 확인
+      // p 요소에서 css 클래스 goo 제거
+      // classed 함수 또한 함수를 값으로 받기 때문에 동적으로 추가와 제거에 대한 결정을 할 수 있다.
+      d3.select("p").classed("goo", () => {
+        return false;
+      });
+      console.log(d3.select("p").classed("goo")); // p 요소가 css 클래스인 goo를 갖고 있는 확인
+
+      //style
+      console.log(d3.select("p").style("font-size")); //폰트 크기에 대한 p 요소의 스타일 가져오기.
+      d3.select("p").style("font-size", "10px"); // 폰트 사이즈 설정
+      // style 동적 생성
+      let normalFontsize = 10;
+      d3.select("p").style("font-size", () => {
+        return normalFontsize + 10 + "px";
+      });
+
+      //text
+      console.log(d3.select("p").text()); // 텍스트 내용 가져오기
+      d3.select("p").text("Hello2");
+
+      console.log(d3.select("p").html());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Raw Selection</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script type="text/javascript" src="../node_modules/d3/dist/d3.js"></script>
+  </head>
+  <body>
+    <table class="table">
+      <thread>
+        <tr>
+          <th>Time</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thread>
+      <tbody>
+        <tr>
+          <td>10:22</td>
+          <td>Purchase</td>
+          <td>$10.00</td>
+        </tr>
+        <tr>
+          <td>12:12</td>
+          <td>Purchase</td>
+          <td>$12.50</td>
+        </tr>
+        <tr>
+          <td>13:11</td>
+          <td>Expense</td>
+          <td>$9.70</td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      let rows = d3.selectAll("tr");
+      let headerElement = rows[0][0];
+      d3.select(headerElement).attr("class", "table-header");
+      d3.select(rows[0][1]).attr("class", "table-row-odd");
+      d3.select(rows[0][2]).attr("class", "table-row-even");
+      d3.select(rows[0][3]).attr("class", "table-row-odd");
+    </script>
+  </body>
+</html>
